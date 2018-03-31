@@ -57,7 +57,7 @@ namespace ThreadDemo_Mac
             Console.WriteLine("4:线程池的应用；");
             Console.WriteLine("5:委托的应用；");
             Console.WriteLine("6:Task的简单使用；");
-            Console.WriteLine("7:Parallel的应用；");
+            Console.WriteLine("7:Parallel的简单应用；");
 
         }
     }
