@@ -157,21 +157,21 @@ namespace ThreadDemoMac
         #region 多线程应用：ThreadPool和委托
         public static void ThreadPoolQueue(Object param)
         {
-            if (param == null)
-            {
-                param = "无名氏";
-            }
-            ThreadPool.QueueUserWorkItem(new WaitCallback(RunWorkerMethod), param);
-
+            ThreadPool.QueueUserWorkItem(RunWorkerMethod, param);
         }
 
-        private static void RunWorkerMethod(Object name)
+        private static void RunWorkerMethod(Object param)
         {
-            if (name == null)
+            string name = "";
+            if (param!=null)
+            {
+                name = (string) param;
+            }
+            else
             {
                 name = "无名氏";
             }
-            Console.WriteLine("执行了线程池{0}方法！", name);
+            Console.WriteLine("执行了线程池{0}方法--线程{1}！", name,Thread.CurrentThread.ManagedThreadId);
         }
         delegate string MyDelegate(string name, string doSome);
         public static void DelegateMethod()

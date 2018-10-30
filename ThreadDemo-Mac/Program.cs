@@ -26,6 +26,8 @@ namespace ThreadDemo_Mac
                         break;
                     case "4":
                         ThreadHelper.ThreadPoolQueue("小米");
+                        ThreadHelper.ThreadPoolQueue(null);
+                        ThreadHelper.ThreadPoolQueue("");
                         break;
                     case "5":
                         ThreadHelper.DelegateMethod();
