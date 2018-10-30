@@ -8,14 +8,3 @@
 /Users/xiatianming/Projects/ThreadDemo-Mac/ThreadDemo-Mac/obj/Debug/netcoreapp2.0/ThreadDemo-Mac.AssemblyInfo.cs
 /Users/xiatianming/Projects/ThreadDemo-Mac/ThreadDemo-Mac/obj/Debug/netcoreapp2.0/ThreadDemo-Mac.dll
 /Users/xiatianming/Projects/ThreadDemo-Mac/ThreadDemo-Mac/obj/Debug/netcoreapp2.0/ThreadDemo-Mac.pdb
-D:\Demo\ThreadDemo\ThreadDemo-Mac\bin\Debug\netcoreapp2.0\ThreadDemo-Mac.deps.json
-D:\Demo\ThreadDemo\ThreadDemo-Mac\bin\Debug\netcoreapp2.0\ThreadDemo-Mac.runtimeconfig.json
-D:\Demo\ThreadDemo\ThreadDemo-Mac\bin\Debug\netcoreapp2.0\ThreadDemo-Mac.runtimeconfig.dev.json
-D:\Demo\ThreadDemo\ThreadDemo-Mac\bin\Debug\netcoreapp2.0\ThreadDemo-Mac.dll
-D:\Demo\ThreadDemo\ThreadDemo-Mac\bin\Debug\netcoreapp2.0\ThreadDemo-Mac.pdb
-D:\Demo\ThreadDemo\ThreadDemo-Mac\obj\Debug\netcoreapp2.0\ThreadDemo-Mac.csprojAssemblyReference.cache
-D:\Demo\ThreadDemo\ThreadDemo-Mac\obj\Debug\netcoreapp2.0\ThreadDemo-Mac.csproj.CoreCompileInputs.cache
-D:\Demo\ThreadDemo\ThreadDemo-Mac\obj\Debug\netcoreapp2.0\ThreadDemo-Mac.AssemblyInfoInputs.cache
-D:\Demo\ThreadDemo\ThreadDemo-Mac\obj\Debug\netcoreapp2.0\ThreadDemo-Mac.AssemblyInfo.cs
-D:\Demo\ThreadDemo\ThreadDemo-Mac\obj\Debug\netcoreapp2.0\ThreadDemo-Mac.dll
-D:\Demo\ThreadDemo\ThreadDemo-Mac\obj\Debug\netcoreapp2.0\ThreadDemo-Mac.pdb
