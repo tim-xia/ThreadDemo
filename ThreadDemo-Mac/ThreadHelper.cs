@@ -40,9 +40,9 @@ namespace ThreadDemoMac
         {
             BookShop bookShop = new BookShop();
             Thread thread1 = new Thread(new ThreadStart(bookShop.SaleBooks));
-            Thread thread2 = new Thread(new ThreadStart(bookShop.SaleBooks));
+            Thread thread2 = new Thread(new ParameterizedThreadStart(bookShop.SaleBooks));
             thread1.Start();
-            thread2.Start();
+            thread2.Start(2);
         }
 
         /// <summary>
@@ -62,7 +62,10 @@ namespace ThreadDemoMac
         /// </summary>
         class BookShop
         {
-            public int num = 1;
+            public int num = 3;
+            /// <summary>
+            /// 每次卖出一本书
+            /// </summary>
             public void SaleBooks()
             {
                 int tmp = num;
@@ -72,6 +75,27 @@ namespace ThreadDemoMac
                     num--;
                     Console.WriteLine("售出1本书，剩余{0}本", num);
 
+                }
+                else
+                {
+                    Console.WriteLine("书已售完");
+                }
+            }
+            public void SaleBooks(object param)
+            {
+                var i = (int) param;
+                int tmp = num;
+                if (tmp > i)
+                {
+                    Thread.Sleep(1000);
+                    num--;
+                    Console.WriteLine("售出"+i+"本书，剩余{0}本", num);
+                }
+                else if (tmp < i && i > 0)
+                {
+                    Thread.Sleep(1000);
+                    num=0;
+                    Console.WriteLine("售出" + tmp + "本书，剩余{0}本", num);
                 }
                 else
                 {
