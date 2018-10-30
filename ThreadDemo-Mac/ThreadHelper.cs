@@ -52,9 +52,9 @@ namespace ThreadDemoMac
         {
             BookShop bookShop = new BookShop();
             Thread thread1 = new Thread(new ThreadStart(bookShop.SynchronizeSaleBooks));
-            Thread thread2 = new Thread(new ThreadStart(bookShop.SynchronizeSaleBooks));
+            Thread thread2 = new Thread(new ParameterizedThreadStart(bookShop.SynchronizeSaleBooks));
             thread1.Start();
-            thread2.Start();
+            thread2.Start(2);
         }
 
         /// <summary>
@@ -71,9 +71,10 @@ namespace ThreadDemoMac
                 int tmp = num;
                 if (tmp > 0)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1100);
                     num--;
-                    Console.WriteLine("售出1本书，剩余{0}本", num);
+                    tmp--;
+                    Console.WriteLine("售出1本书，剩余{0}本", tmp);
 
                 }
                 else
@@ -88,14 +89,16 @@ namespace ThreadDemoMac
                 if (tmp > i)
                 {
                     Thread.Sleep(1000);
-                    num--;
-                    Console.WriteLine("售出"+i+"本书，剩余{0}本", num);
+                    num -= i;
+                    tmp -= i;
+                    Console.WriteLine("售出"+i+"本书，剩余{0}本", tmp);
                 }
                 else if (tmp < i && i > 0)
                 {
                     Thread.Sleep(1000);
                     num=0;
-                    Console.WriteLine("售出" + tmp + "本书，剩余{0}本", num);
+                    tmp = 0;
+                    Console.WriteLine("售出" + tmp + "本书，剩余{0}本", tmp);
                 }
                 else
                 {
@@ -111,8 +114,36 @@ namespace ThreadDemoMac
                     {
                         Thread.Sleep(500);
                         num--;
-                        Console.WriteLine("售出1本书，剩余{0}本", num);
+                        tmp--;
+                        Console.WriteLine("售出1本书，剩余{0}本", tmp);
 
+                    }
+                    else
+                    {
+                        Console.WriteLine("书已售完");
+                    }
+                }
+            }
+            public void SynchronizeSaleBooks(object param)
+            {
+                var i = (int) param;
+                lock (this)
+                {
+                    int tmp = num;
+                    if (tmp >= i)
+                    {
+                        Thread.Sleep(500);
+                        num -= i;
+                        tmp -= i;
+                        Console.WriteLine("售出"+i+"本书，剩余{0}本", tmp);
+
+                    }
+                    else if (tmp < i && tmp > 0)
+                    {
+                        Thread.Sleep(500);
+                        num = 0;
+                        tmp = 0;
+                        Console.WriteLine("售出" + i + "本书，剩余{0}本", tmp);
                     }
                     else
                     {
