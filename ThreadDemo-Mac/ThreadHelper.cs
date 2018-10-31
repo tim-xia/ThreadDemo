@@ -217,5 +217,35 @@ namespace ThreadDemoMac
 
         #endregion
 
+        #region EventWaitHandle应用
+        static EventWaitHandle eventWaitHandle=new EventWaitHandle(false,EventResetMode.ManualReset,"test");
+        public static void EventWaitHandleMethod()
+        {
+            var task1 = new Task((p) => { TakePicture(p.ToString()); }, "A");
+            var task2 = new Task((p) => { TakePicture(p.ToString()); }, "A1");
+            var task3 = new Task((p) => { TakePicture(p.ToString()); }, "A11");
+            var task4 = new Task((p) => { TakePicture(p.ToString()); }, "A111");
+            task1.Start();
+            task2.Start();
+            task3.Start();
+            task4.Start();
+            //eventWaitHandle.Set();
+            Task.WaitAll(new Task[] {task1, task2, task3, task4});
+            Console.WriteLine("全部拍照完成");
+        }
+
+        /// <summary>
+        /// 拍照
+        /// </summary>
+        /// <param name="name"></param>
+        private static void TakePicture(string name)
+        {
+            //eventWaitHandle.WaitOne();
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff")+":"+name+"开始拍照");
+            Thread.Sleep(name.Length*100);
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff") + ":"+name +"结束拍照");
+        }
+
+        #endregion
     }
 }

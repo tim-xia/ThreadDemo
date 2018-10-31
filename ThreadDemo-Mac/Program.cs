@@ -38,6 +38,9 @@ namespace ThreadDemo_Mac
                     case "7":
                         ThreadHelper.ParallelMethod();
                         break;
+                    case "8":
+                        ThreadHelper.EventWaitHandleMethod();
+                        break;
                     default:
                         Console.WriteLine("请输入有效值");
                         break;
@@ -60,7 +63,7 @@ namespace ThreadDemo_Mac
             Console.WriteLine("5:委托的应用；");
             Console.WriteLine("6:Task的简单使用；");
             Console.WriteLine("7:Parallel的简单应用；");
-
+            Console.WriteLine("8:EventWaitHandle的简单应用；");
         }
     }
 }
